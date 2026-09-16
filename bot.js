@@ -438,7 +438,14 @@ bot.on('message', (msg) => {
     if (msg.contact) {
       state.data.phone = msg.contact.phone_number;
     } else {
-      state.data.phone = text;
+      // Matn yozilsa rad et
+      bot.sendMessage(chatId, "❌ Iltimos, telefon raqamingizni qo'lda yozmang!\n\nPastdagi 📱 «Raqamni yuborish» tugmasini bosing.", {
+        reply_markup: {
+          keyboard: [[{ text: q.sendPhoneBtn, request_contact: true }], [q.cancel]],
+          resize_keyboard: true
+        }
+      });
+      return;
     }
     
     if (state.step === 'ASK_PHONE_FREE') {

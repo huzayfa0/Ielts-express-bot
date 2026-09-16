@@ -58,7 +58,7 @@ const i18n = {
       level: "Hozirgi ingliz tili darajangiz?",
       goal: "Maqsadingiz?",
       ieltsScore: "Maqsad ball (IELTS):",
-      examDate: "Imtihon sanasi (masalan, 20-Noyabr):",
+      examDate: "Imtihon sanasi (masalan: 20-Noyabr yoki 05-Mart):",
       completed: "Ma’lumotlaringiz qabul qilindi. Siz uchun mos kursni aniqlash uchun administratorimiz siz bilan bog‘lanadi.",
       completedFreeLesson: "Tabriklaymiz! Bepul darsga yozilish uchun ma'lumotlaringiz qabul qilindi. Administratorimiz tez orada siz bilan bog'lanadi.",
       cancel: "❌ Bekor qilish"
@@ -523,15 +523,20 @@ bot.on('message', (msg) => {
   }
 
   if (state.step === 'ASK_IELTS_DATE') {
-    // Validate DD-MM format
-    const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[0-2])$/;
-    if (!dateRegex.test(text)) {
-      bot.sendMessage(chatId, "❌ Noto'g'ri format! Iltimos, sanani KUN-OY shaklida kiriting.\n\nMasalan: 20-11 yoki 05-03", {
+    // Validate DD-OyNomi format (masalan: 20-Noyabr)
+    const months = ['Yanvar','Fevral','Mart','Aprel','May','Iyun','Iyul','Avgust','Sentabr','Oktabr','Noyabr','Dekabr'];
+    const parts = text.split('-');
+    const dayNum = parseInt(parts[0]);
+    const monthName = parts[1] ? parts[1].charAt(0).toUpperCase() + parts[1].slice(1).toLowerCase() : '';
+    
+    if (parts.length !== 2 || isNaN(dayNum) || dayNum < 1 || dayNum > 31 || !months.includes(monthName)) {
+      const monthsList = months.join(', ');
+      bot.sendMessage(chatId, `❌ Noto'g'ri format!\n\nIltimos, sanani KUN-OY shaklida kiriting.\n\nMasalan: 20-Noyabr yoki 05-Mart\n\n📅 Oy nomlari:\n${monthsList}`, {
         reply_markup: { keyboard: [[q.cancel]], resize_keyboard: true }
       });
       return;
     }
-    state.data.examDate = text;
+    state.data.examDate = `${dayNum}-${monthName}`;
     finishSurvey(chatId, state);
     return;
   }

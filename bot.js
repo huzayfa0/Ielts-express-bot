@@ -445,7 +445,13 @@ bot.on('message', (msg) => {
       bot.sendMessage(chatId, q.completedFreeLesson, getMainMenu(state.lang));
       
       const now = new Date();
-      const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+      const hh = String(now.getHours()).padStart(2,'0');
+      const mm2 = String(now.getMinutes()).padStart(2,'0');
+      const ss = String(now.getSeconds()).padStart(2,'0');
+      const dd = String(now.getDate()).padStart(2,'0');
+      const mo = String(now.getMonth()+1).padStart(2,'0');
+      const yyyy = now.getFullYear();
+      const dateStr = `${hh}:${mm2}:${ss} ${dd}-${mo}-${yyyy}`;
       
       const leadMsg = `⚡️ Yangi ariza Express IELTS botidan!\n\n👤 Ism: ${state.data.name}\n📞 Telefon: ${state.data.phone}\n🎯 Qiziqish: Bepul darsga yozilish\n📅 Topshirilgan sana: ${dateStr}`;
       
@@ -517,6 +523,14 @@ bot.on('message', (msg) => {
   }
 
   if (state.step === 'ASK_IELTS_DATE') {
+    // Validate DD-MM format
+    const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[0-2])$/;
+    if (!dateRegex.test(text)) {
+      bot.sendMessage(chatId, "❌ Noto'g'ri format! Iltimos, sanani KUN-OY shaklida kiriting.\n\nMasalan: 20-11 yoki 05-03", {
+        reply_markup: { keyboard: [[q.cancel]], resize_keyboard: true }
+      });
+      return;
+    }
     state.data.examDate = text;
     finishSurvey(chatId, state);
     return;
@@ -590,7 +604,13 @@ function finishSurvey(chatId, state) {
   bot.sendMessage(chatId, q.completed, getMainMenu(state.lang));
 
   const now = new Date();
-  const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+  const hh = String(now.getHours()).padStart(2,'0');
+  const mm = String(now.getMinutes()).padStart(2,'0');
+  const ss = String(now.getSeconds()).padStart(2,'0');
+  const dd = String(now.getDate()).padStart(2,'0');
+  const mo = String(now.getMonth()+1).padStart(2,'0');
+  const yyyy = now.getFullYear();
+  const dateStr = `${hh}:${mm}:${ss} ${dd}-${mo}-${yyyy}`;
 
   let interestText = `Kursga yozilish (${state.data.goal})`;
   if (state.data.goal === 'IELTS' && state.data.ieltsScore) {

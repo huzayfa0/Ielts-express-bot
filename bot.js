@@ -35,9 +35,61 @@ const pricesInfo = {
   schedule: `📌 DARS JADVALI\n\n📅 Haftasiga 3 marta:\n12 ta dars\n\n📅 Haftasiga 6 marta:\nOylik to‘lov asosida\n\n💡 Sizga qaysi format mosligini bilmayapsizmi?\n\n🎯 Darajangiz va maqsadingizga qarab sizga mos guruhni aniqlab beramiz.`
 };
 
+// 10 ta savolli Quiz Testlar bazasi (Test.pdf asosida boyitilgan)
+const quizQuestions = {
+  beginner: [
+    { q: "I ... a student.", options: ["A) am", "B) is", "C) are", "D) be"], correct: 0 },
+    { q: "She ... two brothers.", options: ["A) have", "B) has", "C) haves", "D) having"], correct: 1 },
+    { q: "They ... in London.", options: ["A) lives", "B) living", "C) live", "D) are live"], correct: 2 },
+    { q: "What time ... it now?", options: ["A) is", "B) are", "C) does", "D) do"], correct: 0 },
+    { q: "Where ... you from?", options: ["A) do", "B) is", "C) are", "D) be"], correct: 2 },
+    { q: "This is ... apple on the table.", options: ["A) a", "B) an", "C) the", "D) -"], correct: 1 },
+    { q: "He doesn't ... coffee in the evening.", options: ["A) likes", "B) liking", "C) like", "D) liked"], correct: 2 },
+    { q: "Can you ... English well?", options: ["A) speak", "B) speaks", "C) speaking", "D) to speak"], correct: 0 },
+    { q: "We go to English club ... Monday.", options: ["A) in", "B) at", "C) on", "D) to"], correct: 2 },
+    { q: "... book is this on the desk?", options: ["A) Who", "B) Whose", "C) Where", "D) Which"], correct: 1 }
+  ],
+  pre_intermediate: [
+    { q: "Yesterday, I ... to the city center.", options: ["A) go", "B) went", "C) have gone", "D) was go"], correct: 1 },
+    { q: "She is ... than her older sister.", options: ["A) taller", "B) more tall", "C) tallest", "D) more taller"], correct: 0 },
+    { q: "Have you ever ... to Samarkand?", options: ["A) be", "B) went", "C) been", "D) was"], correct: 2 },
+    { q: "If it rains tomorrow, we ... at home.", options: ["A) stay", "B) will stay", "C) stayed", "D) would stay"], correct: 1 },
+    { q: "Look! The children ... football outside.", options: ["A) play", "B) played", "C) are playing", "D) have played"], correct: 2 },
+    { q: "You ... wear a helmet when riding a motorbike.", options: ["A) must", "B) can", "C) might", "D) could"], correct: 0 },
+    { q: "How ... sugar do you put in your tea?", options: ["A) many", "B) much", "C) any", "D) few"], correct: 1 },
+    { q: "He was tired because he ... hard all day.", options: ["A) worked", "B) has worked", "C) had worked", "D) works"], correct: 2 },
+    { q: "I really enjoy ... interesting books in my free time.", options: ["A) read", "B) reading", "C) to read", "D) reads"], correct: 1 },
+    { q: "This modern building was designed ... a famous architect.", options: ["A) with", "B) by", "C) from", "D) of"], correct: 1 }
+  ],
+  intermediate: [
+    { q: "Choose an appropriate article:\nThere is a man in the room. ... man is your friend.", options: ["A) The", "B) A", "C) An", "D) -"], correct: 0 },
+    { q: "Choose a verb in an appropriate tense:\nI would be very pleased if you ... to the party.", options: ["A) come", "B) will come", "C) came", "D) have come"], correct: 2 },
+    { q: "Choose an appropriate form of Passive Voice:\nWhen I came home, the food ... .", options: ["A) prepared", "B) has been prepared", "C) was prepare", "D) was being prepared"], correct: 3 },
+    { q: "Direct speech: Mary said: \"I am happy now\"\nIndirect speech: Mary said that ...", options: ["A) she was happy now", "B) she was happy then", "C) I was happy now", "D) I was happy then"], correct: 1 },
+    { q: "Choose an appropriate preposition:\nI am looking ... a new job.", options: ["A) at", "B) through", "C) up", "D) for"], correct: 3 },
+    { q: "By the time the train arrived, we ... on the platform for two hours.", options: ["A) waited", "B) have waited", "C) had been waiting", "D) are waiting"], correct: 2 },
+    { q: "Although it was raining heavily, ... they went for a walk.", options: ["A) but", "B) yet", "C) -", "D) however"], correct: 2 },
+    { q: "Neither my brother nor my parents ... able to attend the meeting.", options: ["A) is", "B) are", "C) was", "D) be"], correct: 1 },
+    { q: "He strictly refused ... me the truth about what happened.", options: ["A) tell", "B) telling", "C) to tell", "D) told"], correct: 2 },
+    { q: "The bridge ... built last year connects the two districts.", options: ["A) which", "B) which was", "C) that", "D) was"], correct: 1 }
+  ],
+  ielts: [
+    { q: "Inversion:\nRarely ... such an extraordinary musical performance.", options: ["A) I have seen", "B) have I seen", "C) I saw", "D) did I saw"], correct: 1 },
+    { q: "Third conditional:\nIf he had studied more diligently, he ... the exam.", options: ["A) would pass", "B) will pass", "C) would have passed", "D) had passed"], correct: 2 },
+    { q: "Collocation:\nThe government introduced strict policies to curb ... emissions.", options: ["A) fossil", "B) carbon", "C) smoke", "D) fuel"], correct: 1 },
+    { q: "Subjunctive mood:\nIt is imperative that every candidate ... present on time.", options: ["A) is", "B) be", "C) was", "D) will be"], correct: 1 },
+    { q: "Preposition:\nThe sudden inflation had a profound impact ... local small businesses.", options: ["A) on", "B) in", "C) at", "D) upon"], correct: 0 },
+    { q: "Conditional inversion:\nHad I known about the flight delay, I ... all this trouble.", options: ["A) wouldn't take", "B) wouldn't have taken", "C) hadn't taken", "D) didn't take"], correct: 1 },
+    { q: "Vocabulary:\nShe is widely regarded ... one of the foremost pioneers in neuroscience.", options: ["A) like", "B) as", "C) to be", "D) for"], correct: 1 },
+    { q: "Word choice:\nThe empirical findings of the study are fully ... with earlier research.", options: ["A) consistent", "B) constant", "C) continuous", "D) coherent"], correct: 0 },
+    { q: "Participle clause:\nDespite ... thoroughly exhausted after the trip, they completed the report.", options: ["A) he was", "B) being", "C) of being", "D) to be"], correct: 1 },
+    { q: "Inversion:\nNot only ... first place, but she also set a new national record.", options: ["A) she achieved", "B) did she achieve", "C) has she achieved", "D) she had achieved"], correct: 1 }
+  ]
+};
+
 const i18n = {
   uz: {
-    welcome: "Assalomu alaykum! Quydagi menyudan kerakli bo'limni tanlang:",
+    welcome: "Assalomu alaykum! Quyidagi menyudan kerakli bo'limni tanlang:",
     langChanged: "Til O'zbek tiliga o'zgartirildi 🇺🇿",
     menu: {
       level: "🎯 Darajamni aniqlash",
@@ -91,7 +143,7 @@ const i18n = {
       level: "Ваш текущий уровень английского?",
       goal: "Ваша цель?",
       ieltsScore: "Целевой балл (IELTS):",
-      examDate: "Дата экзамена (например, 20 Ноября):",
+      examDate: "Дата экзамена (например: 20-Ноябрь):",
       completed: "Ваши данные приняты. Наш администратор свяжется с вами, чтобы подобрать подходящий курс.",
       completedFreeLesson: "Поздравляем! Ваша заявка на бесплатный урок принята. Наш администратор скоро свяжется с вами.",
       cancel: "❌ Отмена"
@@ -106,7 +158,7 @@ const i18n = {
 
 function getState(chatId) {
   if (!userStates[chatId]) {
-    userStates[chatId] = { lang: 'uz', step: 'NONE', data: {} };
+    userStates[chatId] = { lang: 'uz', step: 'NONE', data: {}, quiz: null };
   }
   return userStates[chatId];
 }
@@ -166,6 +218,10 @@ function sendPricesMenu(chatId, lang) {
 
 function startSurvey(chatId, lang, isFreeLesson = false) {
   const state = getState(chatId);
+  if (state.quiz && state.quiz.timer) {
+    clearTimeout(state.quiz.timer);
+  }
+  state.quiz = null;
   const q = i18n[lang].questions;
   state.step = isFreeLesson ? 'ASK_NAME_FREE' : 'ASK_NAME';
   state.data = {};
@@ -177,9 +233,227 @@ function startSurvey(chatId, lang, isFreeLesson = false) {
   });
 }
 
+// --- DARANI ANIQLASH (QUIZ) TIZIMI ---
+
+function startQuizFlow(chatId, lang) {
+  const state = getState(chatId);
+  if (state.quiz && state.quiz.timer) {
+    clearTimeout(state.quiz.timer);
+  }
+  state.quiz = null;
+  state.data = {};
+  state.step = 'ASK_NAME_FOR_QUIZ';
+
+  bot.sendMessage(chatId, "🎯 <b>INGLIZ TILI DARAJANGIZNI ANIQLASH TESTI</b>\n\nTestni boshlashdan oldin, iltimos, ismingizni kiriting:", {
+    parse_mode: 'HTML',
+    reply_markup: {
+      keyboard: [["❌ Bekor qilish"]],
+      resize_keyboard: true
+    }
+  });
+}
+
+function sendQuizLevelSelection(chatId, lang) {
+  const text = `🎯 <b>INGLIZ TILI DARAJANGIZNI ANIQLASH TESTI</b>\n\n` +
+    `Sizga tanlangan darajangiz bo‘yicha <b>10 ta test savoli</b> beriladi.\n` +
+    `⏱ Har bir savol uchun maksimal <b>1 daqiqa</b> vaqt ajratiladi.\n\n` +
+    `O‘zingizni taxminan qaysi darajada deb hisoblaysiz? Tanlang:`;
+
+  const inlineKeyboard = [
+    [{ text: "🟢 Beginner / Elementary", callback_data: "quiz_lvl_beginner" }],
+    [{ text: "🟡 Pre-Intermediate", callback_data: "quiz_lvl_pre_intermediate" }],
+    [{ text: "🟠 Intermediate", callback_data: "quiz_lvl_intermediate" }],
+    [{ text: "🎯 IELTS / Upper-Intermediate", callback_data: "quiz_lvl_ielts" }]
+  ];
+
+  bot.sendMessage(chatId, text, {
+    parse_mode: 'HTML',
+    reply_markup: { inline_keyboard: inlineKeyboard }
+  });
+}
+
+function startQuizForUser(chatId, level) {
+  const state = getState(chatId);
+  if (state.quiz && state.quiz.timer) {
+    clearTimeout(state.quiz.timer);
+  }
+
+  const levelNames = {
+    beginner: "Beginner / Elementary",
+    pre_intermediate: "Pre-Intermediate",
+    intermediate: "Intermediate",
+    ielts: "IELTS / Upper-Intermediate"
+  };
+
+  state.step = 'IN_QUIZ';
+  state.quiz = {
+    level: level,
+    levelName: levelNames[level] || level,
+    currentIndex: 0,
+    score: 0,
+    timer: null,
+    currentMsgId: null
+  };
+
+  bot.sendMessage(chatId, `🚀 <b>Test boshlandi!</b>\n\n📌 Daraja: <b>${state.quiz.levelName}</b>\nSavollar soni: <b>10 ta</b>\n⏱ Har bir savolga: <b>1 daqiqa</b>\n\nOmad tilaymiz! Birinchi savol:`, {
+    parse_mode: 'HTML',
+    reply_markup: {
+      keyboard: [["❌ Testni to'xtatish"]],
+      resize_keyboard: true
+    }
+  }).then(() => {
+    sendNextQuizQuestion(chatId);
+  });
+}
+
+function sendNextQuizQuestion(chatId) {
+  const state = getState(chatId);
+  if (!state.quiz || state.step !== 'IN_QUIZ') return;
+
+  const questions = quizQuestions[state.quiz.level];
+  const idx = state.quiz.currentIndex;
+
+  if (idx >= questions.length) {
+    finishQuiz(chatId);
+    return;
+  }
+
+  const item = questions[idx];
+  const qNum = idx + 1;
+  const total = questions.length;
+
+  const text = `❓ <b>${qNum}/${total}-savol</b> (⏱ 1 daqiqa)\n\n${item.q}`;
+
+  const inlineKeyboard = [
+    [
+      { text: item.options[0], callback_data: `quiz_ans_${idx}_0` },
+      { text: item.options[1], callback_data: `quiz_ans_${idx}_1` }
+    ],
+    [
+      { text: item.options[2], callback_data: `quiz_ans_${idx}_2` },
+      { text: item.options[3], callback_data: `quiz_ans_${idx}_3` }
+    ]
+  ];
+
+  bot.sendMessage(chatId, text, {
+    parse_mode: 'HTML',
+    reply_markup: { inline_keyboard: inlineKeyboard }
+  }).then(sentMsg => {
+    if (!state.quiz) return;
+    state.quiz.currentMsgId = sentMsg.message_id;
+
+    // 1 daqiqalik (60 soniya) taymer
+    if (state.quiz.timer) clearTimeout(state.quiz.timer);
+    state.quiz.timer = setTimeout(() => {
+      handleQuizTimeout(chatId, idx);
+    }, 60000);
+  }).catch(() => {});
+}
+
+function handleQuizTimeout(chatId, questionIndex) {
+  const state = getState(chatId);
+  if (!state.quiz || state.step !== 'IN_QUIZ') return;
+  if (state.quiz.currentIndex !== questionIndex) return;
+
+  if (state.quiz.currentMsgId) {
+    bot.editMessageReplyMarkup({ inline_keyboard: [] }, {
+      chat_id: chatId,
+      message_id: state.quiz.currentMsgId
+    }).catch(() => {});
+  }
+
+  bot.sendMessage(chatId, `⏰ <b>${questionIndex + 1}-savol uchun 1 daqiqa vaqt tugadi!</b>\nKeyingi savolga o'tamiz...`, { parse_mode: 'HTML' });
+
+  state.quiz.currentIndex++;
+  setTimeout(() => {
+    sendNextQuizQuestion(chatId);
+  }, 1000);
+}
+
+function finishQuiz(chatId) {
+  const state = getState(chatId);
+  if (!state.quiz) return;
+
+  if (state.quiz.timer) {
+    clearTimeout(state.quiz.timer);
+    state.quiz.timer = null;
+  }
+
+  const score = state.quiz.score;
+  const level = state.quiz.level;
+  const levelName = state.quiz.levelName;
+
+  // 5% lik maxsus promokod
+  const randomDigits = Math.floor(1000 + Math.random() * 9000);
+  const promoCode = `EI-5-${randomDigits}`;
+
+  // Kurs tavsiyasi
+  let recommendedCourse = "";
+  if (level === 'beginner') {
+    recommendedCourse = score >= 7 ? "🇬🇧 General English (Elementary / Pre-Intermediate)" : "🇬🇧 General English (Beginner - noldan boshlash)";
+  } else if (level === 'pre_intermediate') {
+    recommendedCourse = score >= 7 ? "📖 Pre-IELTS yoki Intermediate" : "🇬🇧 General English (Pre-Intermediate)";
+  } else if (level === 'intermediate') {
+    recommendedCourse = score >= 7 ? "🎯 IELTS (Standard tayyorgarlik)" : "📖 Pre-IELTS yoki CEFR";
+  } else {
+    // ielts
+    recommendedCourse = score >= 7 ? "🎯 IELTS Intensive (Band 7.0 - 8.5+)" : "🎯 IELTS Standard (Band 6.0 - 7.0)";
+  }
+
+  const resultMsg = `🎉 <b>Tabriklaymiz! Siz testni muvaffaqiyatli yakunladingiz!</b>\n\n` +
+    `📊 Sizning natijangiz: <b>${score} / 10 ball</b>\n` +
+    `🎓 Sizga tavsiya etiladigan kurs: <b>${recommendedCourse}</b>\n\n` +
+    `🎁 <b>Siz uchun maxsus 5% CHEGIRMA PROMOKODI:</b>\n` +
+    `🎟 Promo-kod: <code>${promoCode}</code>\n\n` +
+    `📍 Ushbu promokod bilan <b>Express IELTS</b> o‘quv markazimizga tashrif buyursangiz, kurs to‘lovingizda <b>5% skidka (chegirma)</b> beriladi!\n\n` +
+    `📞 Administrator: @expressieltsadmin\n` +
+    `☎️ Telefon: +998 99 033 4111`;
+
+  bot.sendMessage(chatId, resultMsg, {
+    parse_mode: 'HTML',
+    ...getMainMenu(state.lang)
+  });
+
+  // Guruh adminiga yuborish
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2,'0');
+  const mm = String(now.getMinutes()).padStart(2,'0');
+  const ss = String(now.getSeconds()).padStart(2,'0');
+  const dd = String(now.getDate()).padStart(2,'0');
+  const mo = String(now.getMonth()+1).padStart(2,'0');
+  const yyyy = now.getFullYear();
+  const dateStr = `${hh}:${mm}:${ss} ${dd}-${mo}-${yyyy}`;
+
+  const adminMsg = `⚡️ <b>Yangi test natijasi va ariza (Express IELTS bot)!</b>\n\n` +
+    `👤 <b>Ism:</b> ${state.data.name || "Noma'lum"}\n` +
+    `📞 <b>Telefon:</b> ${state.data.phone || "Noma'lum"}\n` +
+    `📊 <b>Tanlangan daraja:</b> ${levelName}\n` +
+    `🏆 <b>To'plagan balli:</b> ${score} / 10 ball\n` +
+    `🎯 <b>Tavsiya etilgan kurs:</b> ${recommendedCourse}\n` +
+    `🎟 <b>Berilgan promokod (5% skidka):</b> <code>${promoCode}</code>\n` +
+    `📅 <b>Topshirilgan sana:</b> ${dateStr}`;
+
+  if (ADMIN_GROUP_ID) {
+    bot.sendMessage(ADMIN_GROUP_ID, adminMsg, { parse_mode: 'HTML' }).catch(err => {
+      console.error("Adminga xabar yuborib bo'lmadi:", err.message);
+    });
+  } else {
+    console.log("--- Test natijasi admin xabari ---\n", adminMsg);
+  }
+
+  state.step = 'NONE';
+  state.quiz = null;
+}
+
+// --- BOT BUYRUQLARI ---
+
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
   const state = getState(chatId);
+  if (state.quiz && state.quiz.timer) {
+    clearTimeout(state.quiz.timer);
+  }
+  state.quiz = null;
   state.step = 'NONE';
   state.data = {};
   bot.sendMessage(chatId, i18n[state.lang].welcome, getMainMenu(state.lang));
@@ -200,7 +474,7 @@ bot.onText(/\/freelesson/, (msg) => {
 bot.onText(/\/level/, (msg) => {
   if (msg.chat.type !== 'private') return;
   const state = getState(msg.chat.id);
-  startSurvey(msg.chat.id, state.lang);
+  startQuizFlow(msg.chat.id, state.lang);
 });
 
 bot.onText(/\/prices/, (msg) => {
@@ -256,7 +530,6 @@ bot.onText(/\/setadmin/, (msg) => {
   const groupId = msg.chat.id;
   ADMIN_GROUP_ID = groupId;
   const fs = require('fs');
-  // Update or append to .env
   let envContent = '';
   if (fs.existsSync('.env')) {
     envContent = fs.readFileSync('.env', 'utf8');
@@ -269,7 +542,7 @@ bot.onText(/\/setadmin/, (msg) => {
     envContent = `ADMIN_GROUP_ID=${groupId}\n`;
   }
   fs.writeFileSync('.env', envContent);
-  bot.sendMessage(groupId, "✅ Ushbu guruh administrator guruhi sifatida muvaffaqiyatli belgilandi! Yangi o'quvchilar anketalari endi shu yerga keladi.");
+  bot.sendMessage(groupId, "✅ Ushbu guruh administrator guruhi sifatida muvaffaqiyatli belgilandi! Yangi o'quvchilar anketalari va test natijalari endi shu yerga keladi.");
 });
 
 bot.onText(/\/help/, (msg) => {
@@ -283,12 +556,56 @@ bot.onText(/\/help/, (msg) => {
   });
 });
 
+// --- CALLBACK QUERY ISHLASH ---
+
 bot.on('callback_query', (query) => {
   const chatId = query.message.chat.id;
   const data = query.data;
   const state = getState(chatId);
 
-  bot.answerCallbackQuery(query.id);
+  bot.answerCallbackQuery(query.id).catch(() => {});
+
+  // Quiz darajasini tanlash
+  if (data.startsWith('quiz_lvl_')) {
+    const level = data.replace('quiz_lvl_', '');
+    startQuizForUser(chatId, level);
+    return;
+  }
+
+  // Quiz javobi bosilganda
+  if (data.startsWith('quiz_ans_')) {
+    const parts = data.split('_');
+    const qIndex = parseInt(parts[2]);
+    const ansIndex = parseInt(parts[3]);
+
+    if (!state.quiz || state.step !== 'IN_QUIZ') return;
+    if (state.quiz.currentIndex !== qIndex) return;
+
+    if (state.quiz.timer) {
+      clearTimeout(state.quiz.timer);
+      state.quiz.timer = null;
+    }
+
+    bot.editMessageReplyMarkup({ inline_keyboard: [] }, {
+      chat_id: chatId,
+      message_id: query.message.message_id
+    }).catch(() => {});
+
+    const questions = quizQuestions[state.quiz.level];
+    const item = questions[qIndex];
+    if (ansIndex === item.correct) {
+      state.quiz.score++;
+      bot.sendMessage(chatId, `✅ <b>To'g'ri javob!</b>`, { parse_mode: 'HTML' });
+    } else {
+      bot.sendMessage(chatId, `❌ <b>Noto'g'ri!</b> To'g'ri javob: <b>${item.options[item.correct]}</b>`, { parse_mode: 'HTML' });
+    }
+
+    state.quiz.currentIndex++;
+    setTimeout(() => {
+      sendNextQuizQuestion(chatId);
+    }, 1200);
+    return;
+  }
 
   if (data.startsWith('course_')) {
     const courseId = data.replace('course_', '');
@@ -379,8 +696,14 @@ bot.on('callback_query', (query) => {
     return;
   }
 
-  if (data === 'action_register' || data === 'action_level') {
+  if (data === 'action_register') {
     startSurvey(chatId, state.lang);
+    return;
+  }
+
+  if (data === 'action_level') {
+    startQuizFlow(chatId, state.lang);
+    return;
   }
 
   if (data === 'action_main_menu') {
@@ -388,6 +711,8 @@ bot.on('callback_query', (query) => {
     bot.sendMessage(chatId, i18n[state.lang].welcome, getMainMenu(state.lang));
   }
 });
+
+// --- XABARLARNI QABUL QILISH ---
 
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
@@ -412,14 +737,52 @@ bot.on('message', (msg) => {
   const t = i18n[state.lang].menu;
   const q = i18n[state.lang].questions;
 
-  if (text === q.cancel) {
+  // Bekor qilish / Chiqish
+  if (text === q.cancel || text === "❌ Bekor qilish" || text === "❌ Testni to'xtatish") {
+    if (state.quiz && state.quiz.timer) {
+      clearTimeout(state.quiz.timer);
+    }
+    state.quiz = null;
     state.step = 'NONE';
     state.data = {};
     bot.sendMessage(chatId, i18n[state.lang].welcome, getMainMenu(state.lang));
     return;
   }
 
-  // --- SO'ROVNOMA JARAYONI ---
+  // --- QUIZ UCHUN ISM VA RAQAM YIG'ISH ---
+
+  if (state.step === 'ASK_NAME_FOR_QUIZ') {
+    state.data.name = text;
+    state.step = 'ASK_PHONE_FOR_QUIZ';
+    bot.sendMessage(chatId, `Rahmat, <b>${text}</b>!\n\nEndi telefon raqamingizni pastdagi 📱 «Raqamni yuborish» tugmasi orqali yuboring:`, {
+      parse_mode: 'HTML',
+      reply_markup: {
+        keyboard: [[{ text: "📱 Raqamni yuborish", request_contact: true }], ["❌ Bekor qilish"]],
+        resize_keyboard: true
+      }
+    });
+    return;
+  }
+
+  if (state.step === 'ASK_PHONE_FOR_QUIZ') {
+    if (msg.contact) {
+      state.data.phone = msg.contact.phone_number;
+    } else {
+      bot.sendMessage(chatId, "❌ Iltimos, telefon raqamingizni qo'lda yozmang!\n\nPastdagi 📱 «Raqamni yuborish» tugmasini bosing.", {
+        reply_markup: {
+          keyboard: [[{ text: "📱 Raqamni yuborish", request_contact: true }], ["❌ Bekor qilish"]],
+          resize_keyboard: true
+        }
+      });
+      return;
+    }
+
+    state.step = 'SELECT_QUIZ_LEVEL';
+    sendQuizLevelSelection(chatId, state.lang);
+    return;
+  }
+
+  // --- ODDIY SO'ROVNOMA JARAYONI (Kursga yozilish / Bepul dars) ---
 
   if (state.step === 'ASK_NAME' || state.step === 'ASK_NAME_FREE') {
     state.data.name = text;
@@ -438,7 +801,6 @@ bot.on('message', (msg) => {
     if (msg.contact) {
       state.data.phone = msg.contact.phone_number;
     } else {
-      // Matn yozilsa rad et
       bot.sendMessage(chatId, "❌ Iltimos, telefon raqamingizni qo'lda yozmang!\n\nPastdagi 📱 «Raqamni yuborish» tugmasini bosing.", {
         reply_markup: {
           keyboard: [[{ text: q.sendPhoneBtn, request_contact: true }], [q.cancel]],
@@ -530,7 +892,6 @@ bot.on('message', (msg) => {
   }
 
   if (state.step === 'ASK_IELTS_DATE') {
-    // Validate DD-OyNomi format (masalan: 20-Noyabr)
     const months = ['Yanvar','Fevral','Mart','Aprel','May','Iyun','Iyul','Avgust','Sentabr','Oktabr','Noyabr','Dekabr'];
     const parts = text.split('-');
     const dayNum = parseInt(parts[0]);
@@ -556,7 +917,7 @@ bot.on('message', (msg) => {
   }
 
   if (text === t.level) {
-    startSurvey(chatId, state.lang);
+    startQuizFlow(chatId, state.lang);
     return;
   }
   
@@ -650,4 +1011,4 @@ function finishSurvey(chatId, state) {
   state.data = {};
 }
 
-console.log('Bot (Yangi menyu bilan) ishga tushdi...');
+console.log('Express IELTS Bot (Quiz & Promocode tizimi bilan) ishga tushdi...');
